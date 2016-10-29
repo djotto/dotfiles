@@ -1,0 +1,24 @@
+# Remove unwanted aliases
+unalias week
+unalias timer
+
+unalias ..
+unalias ...
+unalias ....
+unalias .....
+unalias "~"
+unalias -
+
+unalias stfu
+unalias pumpitup
+
+unalias l
+unalias la
+
+unalias d
+unalias dl
+unalias dt
+unalias p
+unalias g
+unalias h
+unalias j
