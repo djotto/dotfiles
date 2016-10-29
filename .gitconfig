@@ -174,3 +174,7 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+[user]
+	name = David Otton
+	email = david@otton.org
