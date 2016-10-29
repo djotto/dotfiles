@@ -46,3 +46,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Make some commands not show up in history
 export HISTIGNORE="exit"
+
+# Always enable colored `grep` output
+export GREP_OPTIONS="--color=auto"
