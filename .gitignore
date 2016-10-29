@@ -21,3 +21,6 @@ Thumbs.db
 
 # Vagrant working directory
 .vagrant
+
+# IDEA project directory
+.idea/
