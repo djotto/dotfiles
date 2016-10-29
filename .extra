@@ -43,3 +43,6 @@ function calc() {
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Make some commands not show up in history
+export HISTIGNORE="exit"
