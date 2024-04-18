@@ -169,3 +169,55 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# Function to map color names and modifiers to LS_COLORS codes
+# get_color_ls 'red' 'black' 'bold underlined'
+# get_color_ls 'red' '' 'bold'
+# get_color_ls
+get_color_ls() {
+	local foreground=$1
+	local background=$2
+	local -a modifiers=(${3// / })
+	local result=""
+
+	for modifier in "${modifiers[@]}"; do
+		case "$modifier" in
+			bold)       result+="01;";;
+			dim)        result+="02;";;
+			underlined) result+="04;";;
+			blink)      result+="05;";;
+			reverse)    result+="07;";;
+			hidden)     result+="08;";;
+		esac
+	done
+
+	case "$foreground" in
+		black)   result+="30;" ;;
+		red)     result+="31;" ;;
+		green)   result+="32;" ;;
+		yellow)  result+="33;" ;;
+		blue)    result+="34;" ;;
+		magenta) result+="35;" ;;
+		cyan)    result+="36;" ;;
+		white)   result+="37;" ;;
+		*)       result+="" ;;
+	esac
+
+	# Handling background colors
+	case "$background" in
+		black)   result+="40;" ;;
+		red)     result+="41;" ;;
+		green)   result+="42;" ;;
+		yellow)  result+="43;" ;;
+		blue)    result+="44;" ;;
+		magenta) result+="45;" ;;
+		cyan)    result+="46;" ;;
+		white)   result+="47;" ;;
+		*)       result+="" ;;
+	esac
+
+	result="${result%;}" # strip trailing semicolon
+	[ -n "$result" ] || result="00"
+
+	echo "$result"
+}
