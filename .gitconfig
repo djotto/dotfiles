@@ -81,6 +81,10 @@
 
 [core]
 
+	# Set default editor and diff tool
+	editor = vim
+	tool = opendiff
+
 	# Use custom `.gitignore` and `.gitattributes`.
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
