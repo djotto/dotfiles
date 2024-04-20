@@ -2,6 +2,13 @@
 
 # This file runs last, and contains overrides
 
+# Required for brew
+eval "$(/usr/local/bin/brew shellenv)"
+
+# De-dupe path
+# @see https://github.com/Homebrew/brew/issues/14560
+PATH=$(awk -v RS=: -v ORS=: '{sub(/\/+$/, "", $0); if (!seen[$0]++) print $0}' <<< "$PATH": | sed 's/:$//')
+
 # Remove unwanted aliases
 unalias week
 
@@ -23,6 +30,12 @@ unalias dl
 unalias dt
 unalias p
 unalias g
+
+# Make some commands not show up in history
+export HISTIGNORE="exit:ls"
+
+# Configure lesspipe (installed in brew.sh)
+export LESSOPEN="|$HOMEBREW_PREFIX/bin/lesspipe.sh %s"
 
 # This block overrides code in .aliases
 # Replace MacOS's ls with GNU's ls. GNU's ls is available in brew's coreutils.
@@ -118,6 +131,14 @@ else
 	BOLD=""
 	RESET="\033[m"
 fi
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# ROT13-encode text. Works for decoding, too! ;)
+rot13() {
+  echo "$@" | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+}
 
 unset prompt_git
 
