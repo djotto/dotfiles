@@ -2,6 +2,28 @@
 
 # This file runs last, and contains overrides
 
+# Remove unwanted aliases
+unalias week
+
+unalias ..
+unalias ...
+unalias ....
+unalias .....
+unalias "~"
+unalias -
+
+unalias stfu
+unalias pumpitup
+
+unalias l
+unalias la
+
+unalias d
+unalias dl
+unalias dt
+unalias p
+unalias g
+
 # This block overrides code in .aliases
 # Replace MacOS's ls with GNU's ls. GNU's ls is available in brew's coreutils.
 
