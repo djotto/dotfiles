@@ -12,3 +12,15 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# Libreoffice lock files
+.~lock*
+
+# Komodo project files
+*.komodoproject
+
+# Vagrant working directory
+.vagrant
+
+# IDEA project directory
+.idea
