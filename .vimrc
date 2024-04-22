@@ -61,8 +61,8 @@ set incsearch
 set laststatus=2
 " Enable mouse in all modes
 set mouse=a
-" Disable error bells
-set noerrorbells
+" Enable error bells
+set errorbells
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 " Show the cursor position
@@ -104,3 +104,17 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+" autoindent
+set ai
+
+" reindent operations (<< and >>)
+set shiftwidth=2
+
+" show matching brackets/braces/parantheses
+set showmatch
+
+" hit <F2> before and after pasting code to stop autoindent messing with it
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
