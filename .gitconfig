@@ -168,4 +168,5 @@
 
 [init]
 
+	templateDir = ~/.config/git/template/
 	defaultBranch = main
