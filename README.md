@@ -1,3 +1,18 @@
+This is a heavily modified version of Mathias's dotfiles.
+
+* The upstream project seems to be semi-abandoned, so the first few commits are fixes
+* The bootstrap script now asks for some local variables (git username and email, local machine name) and writes them into the scripts it installs
+* The project assumes bash, not zsh
+* Even though it's published, I rebase this project regularly. I recommend NOT attempting to build on it, just cherry-pick the commits you want
+
+* @todo add Max installation
+* @todo check vim config
+* @todo add iterm2 config
+* @todo investigate chezmoi as a replacement
+* @todo add JetBrains Mono
+* @todo add PHPStorm configuration
+* @todo fix ssh directory autocompletion
+
 # Mathias’s dotfiles
 
 ![Screenshot of my shell prompt](https://i.imgur.com/EkEtphC.png)
