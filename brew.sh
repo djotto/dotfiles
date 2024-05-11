@@ -145,3 +145,47 @@ brew install --cask zoom               # Video communication and virtual meeting
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# Install non-brew software
+
+# Bucklespring - @todo create a brew package for bucklespring
+
+bs_repo="https://github.com/zevv/bucklespring.git"
+bs_install_dir="/usr/local/bin/bucklespring"
+bs_launch_agent_name="com.github.zevv.bucklespring.plist"
+bs_launch_agent_src="${HOME}/init/com.github.zevv.bucklespring.plist"
+bs_launch_agent_dest="${HOME}/Library/LaunchAgents/com.github.zevv.bucklespring.plist"
+
+if [ -d "$bs_install_dir" ]; then
+    pushd "$bs_install_dir"
+
+    # Fetch the latest changes from the remote
+    git fetch origin master
+
+    # Check if there are new changes
+    if git diff --quiet HEAD..origin/master; then
+        echo "No changes detected. Skipping build."
+    else
+        echo "Changes detected. Pulling updates and rebuilding."
+        git pull origin master
+        make
+        launchctl unload "$bs_launch_agent_name"
+        [ -f "$bs_launch_agent_dest" ] && rm "$bs_launch_agent_dest"
+        cp "$bs_launch_agent_src" "$bs_launch_agent_dest"
+        launchctl load "$bs_launch_agent_name"
+    fi
+else
+    git clone "$bs_repo" "$bs_install_dir"
+    pushd "$bs_install_dir"
+    sed -i '' 's/-Wall -Werror/-Wall/' Makefile
+    make
+    cp "$bs_launch_agent_src" "$bs_launch_agent_dest"
+    launchctl load "$bs_launch_agent_name"
+fi
+
+popd
+
+# Debug
+# log show --predicate 'process == "launchd"' --info --last 1m
+
+echo "Bucklespring installed. May require Accessibility permissions at System Settings -> Privacy & Security -> Accessibility"
