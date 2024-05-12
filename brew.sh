@@ -146,6 +146,14 @@ brew install --cask zoom               # Video communication and virtual meeting
 # Remove outdated versions from the cellar.
 brew cleanup
 
+# Configure Brew software
+
+## Configure firefox
+
+mkdir -p /Applications/Firefox.app/Contents/Resources/distribution
+cp "$HOME"/init/policies.json /Applications/Firefox.app/Contents/Resources/distribution/
+echo "Firefox policy installed. Restart firefox to enable."
+
 # Install non-brew software
 
 # Bucklespring - @todo create a brew package for bucklespring

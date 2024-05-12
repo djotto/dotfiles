@@ -1,0 +1,82 @@
+{
+  "policies": {
+    "AutofillCreditCardEnabled": false,
+    "Cookies": {
+      "Behavior": "reject-tracker-and-partition-foreign",
+      "BehaviorPrivateBrowsing": "reject-tracker-and-partition-foreign"
+    },
+    "DefaultDownloadDirectory": "${home}/Downloads/Firefox",
+    "DisabledCiphers": {
+      "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA": true,
+      "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA": true,
+      "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA": true,
+      "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA": true,
+      "TLS_RSA_WITH_AES_128_GCM_SHA256": true,
+      "TLS_RSA_WITH_AES_256_GCM_SHA384": true,
+      "TLS_RSA_WITH_AES_128_CBC_SHA": true,
+      "TLS_RSA_WITH_AES_256_CBC_SHA": true
+    },
+    "DisableFirefoxScreenshots": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisableProfileImport": true,
+    "DisableSetDesktopBackground": true,
+    "DisableTelemetry": true,
+    "DisplayBookmarksToolbar": "never",
+    "EnableTrackingProtection": {
+      "Value": true,
+      "Locked": false,
+      "Cryptomining": true,
+      "Fingerprinting": true,
+      "EmailTracking": true
+    },
+    "ExtensionSettings": {
+      "{799c0914-748b-41df-a25c-22d008f9e83f}": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/{799c0914-748b-41df-a25c-22d008f9e83f}/latest.xpi"
+      },
+      "{806cbba4-1bd3-4916-9ddc-e719e9ca0cbf}": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/{806cbba4-1bd3-4916-9ddc-e719e9ca0cbf}/latest.xpi"
+      },
+      "gdpr@cavi.au.dk": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/consent-o-matic/latest.xpi"
+      },
+      "treestyletab@piro.sakura.ne.jp": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi"
+      },
+      "tst-more-tree-commands@piro.sakura.ne.jp": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/tst-more-tree-commands/latest.xpi"
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      }
+    },
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "PasswordManagerExceptions": [
+      "https://www.hsbc.co.uk/",
+      "https://www.lloydsbank.com/",
+      "https://www.onlinebanking.natwest.com/",
+      "https://www.barclays.co.uk/",
+      "https://www.firstdirect.com/",
+      "https://www.halifax.co.uk/",
+      "https://www.tescobank.com/",
+      "https://retail.santander.co.uk/",
+      "https://www.starlingbank.com/",
+      "https://asda.jaja.finance/",
+      "https://portal.newdaycards.com/"
+    ],
+    "PDFjs": {
+      "Enabled": true,
+      "EnablePermissions": false
+    },
+    "PromptForDownloadLocation": false,
+    "StartDownloadsInTempDirectory": true
+  }
+}
+
