@@ -117,6 +117,11 @@
 	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = true
 
+[checkout]
+
+	# In event of ambiguous checkout of a remote tracking branch, prefer origin
+	defaultRemote = origin
+
 [diff]
 
 	# Detect copies as well as renames.
