@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+# This file runs last, and contains overrides
+
+# De-dupe path
+# @see https://github.com/Homebrew/brew/issues/14560
+PATH=$(awk -v RS=: -v ORS=: '{sub(/\/+$/, "", $0); if (!seen[$0]++) print $0}' <<< "$PATH": | sed 's/:$//')
+
+# This block overrides code in .bash_prompt
+# Based on https://gist.github.com/gf3/306785/a35d28b6bdd0f7c54318cce510738438f04dabaa
+
+if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+  export TERM='gnome-256color';
+elif infocmp xterm-256color >/dev/null 2>&1; then
+  export TERM='xterm-256color';
+fi;
+
+if [[ $COLORTERM = gnome-* && $TERM = xterm ]]  && infocmp gnome-256color >/dev/null 2>&1; then TERM=gnome-256color; fi
+if tput setaf 1 &> /dev/null; then
+  tput sgr0
+  # I don't bother using the 256-colour palette, because I tweak these colors to exactly what I want in iTerm2
+  # Standard colors
+  BLACK=$(tput setaf 0)
+  RED=$(tput setaf 1)
+  GREEN=$(tput setaf 2)
+  YELLOW=$(tput setaf 3)
+  BLUE=$(tput setaf 4)
+  MAGENTA=$(tput setaf 5)
+  CYAN=$(tput setaf 6)
+  WHITE=$(tput setaf 7)
+  # Bright colors
+  BLACK_BRIGHT=$(tput setaf 8)
+  RED_BRIGHT=$(tput setaf 9)
+  GREEN_BRIGHT=$(tput setaf 10)
+  YELLOW_BRIGHT=$(tput setaf 11)
+  BLUE_BRIGHT=$(tput setaf 12)
+  MAGENTA_BRIGHT=$(tput setaf 13)
+  CYAN_BRIGHT=$(tput setaf 14)
+  WHITE_BRIGHT=$(tput setaf 15)
+  BOLD=$(tput bold)
+  RESET=$(tput sgr0)
+else
+  # Standard colors
+  BLACK='\033[30m'
+  RED='\033[31m'
+  GREEN='\033[32m'
+  YELLOW='\033[33m'
+  BLUE='\033[34m'
+  MAGENTA='\033[35m'
+  CYAN='\033[36m'
+  WHITE='\033[37m'
+  # Bright colors
+  BLACK_BRIGHT='\033[90m'
+  RED_BRIGHT='\033[91m'
+  GREEN_BRIGHT='\033[92m'
+  YELLOW_BRIGHT='\033[93m'
+  BLUE_BRIGHT='\033[94m'
+  MAGENTA_BRIGHT='\033[95m'
+  CYAN_BRIGHT='\033[96m'
+  WHITE_BRIGHT='\033[97m'
+
+  BOLD=""
+  RESET="\033[m"
+fi
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# ROT13-encode text. Works for decoding, too! ;)
+rot13() {
+  echo "$@" | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+}
+
+unset prompt_git
+
+function parse_git_dirty() {
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    # Check if the working directory is dirty
+    if [[ $(git status --porcelain) ]]; then
+      echo "*"
+    fi
+  fi
+}
+
+function parse_git_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
+}
+
+# Highlight the hostname when connected via SSH.
+if [[ "${SSH_TTY}" ]]; then
+  HOSTSTYLE="${BOLD}${RED}";
+else
+  HOSTSTYLE="${CYAN}";
+fi;
+
+PS1="\[${CYAN}\]\u\[$RESET\]@\[$HOSTSTYLE\]\h\[$RESET\]:\[$BLUE\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$MAGENTA\]\$(parse_git_branch)\[$MAGENTA_BRIGHT\]\$(parse_git_dirty)\[$RESET\]\n\$ \[$RESET\]"
