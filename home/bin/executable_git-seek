@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Check if an argument was provided
+if [ -z "$1" ]; then
+  echo "Usage: git seek <pattern>"
+  exit 1
+fi
+
+# Search for local branches that contain the argument string and remove leading characters
+matching_branches=$(git branch --list "*$1*" | sed 's/^[* ] //g')
+
+# Count the number of matching branches
+num_matches=$(echo "$matching_branches" | grep -v '^$' | wc -l)
+
+if [ "$num_matches" -eq 0 ]; then
+    echo "No local branch found containing '$1'."
+    exit 1
+elif [ "$num_matches" -eq 1 ]; then
+    # If only one match, check it out directly
+    git checkout "$matching_branches"
+else
+    # If more than one match, present a choice
+    echo "Multiple branches found containing '$1':"
+    IFS=$'\n'; select branch_option in $matching_branches; do
+        if [ -n "$branch_option" ]; then
+            echo "Checking out branch: $branch_option"
+            git checkout "$branch_option"
+            break
+        else
+            echo "Invalid option. Please try again."
+        fi
+    done
+fi
