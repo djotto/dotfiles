@@ -1,2 +1,18 @@
+{{- $serialNumber := "Unknown" -}}
+{{- $computerName := "Unknown" -}}
+
+{{ if eq .chezmoi.os "darwin" }}
+    {{- $serialNumber = index ioreg "IORegistryEntryChildren" 0 "IOPlatformSerialNumber" -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "darwin" -}}
+    {{- $currentComputerName := output "scutil" "--get" "ComputerName" | trim -}}
+    {{- $computerName = promptString "Enter computer name" $currentComputerName }}
+{{- end -}}
+
 [keepassxc]
     database = "~/secrets.kdbx"
+
+[data]
+    dotfiles.computer_name = {{ $computerName | quote }}
+    dotfiles.serial_number = {{ $serialNumber | quote }}
