@@ -32,6 +32,7 @@ packages:
       - 'lesspipe'           # Input filter for the pager less https://www-zeuthen.desy.de/~friebel/unix/lesspipe.html
       - 'mkcert'             # Simple tool to make locally trusted development certificates (ddev assumes this, but I try to make do without it because I consider it a security hole) https://github.com/FiloSottile/mkcert
       - 'mods'               # AI on the command-line https://github.com/charmbracelet/mods
+      - 'mp3guessenc'        # Utility to analysze audio mpeg files and detect the encoder used (when layer III) https://mp3guessenc.sourceforge.io/
       - 'openssh'            # OpenBSD freely-licensed SSH connectivity tools https://www.openssh.com/
       - 'pkg-config'         # Manage compile and link flags for libraries (required for bucklespring) https://freedesktop.org/wiki/Software/pkg-config/
       - 'pngcheck'           # Print info and check PNG, JNG, and MNG files http://www.libpng.org/pub/png/apps/pngcheck.html
