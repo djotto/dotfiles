@@ -24,6 +24,7 @@ packages:
       - 'fdupes'             # Identify or delete duplicate files https://github.com/adrianlopezroche/fdupes
       - 'ffmpeg'             # Play, record, convert, and stream audio and video https://ffmpeg.org/
       - 'gh'                 # GitHub command-line tool https://cli.github.com/
+      - 'git-info'           # Script to dump info about the current repo in a human-readable format https://github.com/djotto/scripts
       - 'gmp'                # GNU multiple precision arithmetic library https://gmplib.org/
       - 'gnupg'              # GNU Pretty Good Privacy (PGP) package https://gnupg.org/
       - 'handbrake'          # Video transcoder https://handbrake.fr/
