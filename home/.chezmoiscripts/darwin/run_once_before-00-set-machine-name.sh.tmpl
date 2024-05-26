@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+
+## Set machine name
+
+sudo scutil --set ComputerName "{{ .dotfiles.computer_name }}"
+sudo scutil --set HostName "{{ .dotfiles.computer_name }}"
+sudo scutil --set LocalHostName "{{ .dotfiles.computer_name }}"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "{{ .dotfiles.computer_name }}"
+
+{{- end }}
