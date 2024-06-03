@@ -4,15 +4,21 @@
 ## Install brew packages
 ## https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
 
+{{ $serialNumber := .dotfiles.serial_number }}
+
 brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.darwin.taps -}}
+tap {{ . | quote }}
+{{ end -}}
 {{ range .packages.darwin.brews -}}
 brew {{ . | quote }}
 {{ end -}}
 {{ range .packages.darwin.casks -}}
-{{ if and (ne .serial_number "xyzzy") (eq . "zed") -}}
+{{ if and (ne $serialNumber "xyzzy") (eq . "zed") -}}
 # Skipping zed cask
 {{ else -}}
 cask {{ . | quote }}
+{{ end -}}
 {{ end -}}
 EOF
 {{ end -}}
