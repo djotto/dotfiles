@@ -1,0 +1,30 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+
+## Configure Firefox with policies file
+
+mkdir -p /Applications/Firefox.app/Contents/Resources/distribution
+
+SOURCE_FILE={{ joinPath .chezmoi.sourceDir ".chezmoidata/policies.json" | quote }}
+DEST_FILE=/Applications/Firefox.app/Contents/Resources/distribution/policies.json
+
+if [ ! -f "$DEST_FILE" ]; then
+  cp "$SOURCE_FILE" "$DEST_FILE"
+  echo "Firefox policy installed. Restart firefox to enable."
+else
+  if ! cmp -s "$SOURCE_FILE" "$DEST_FILE"; then
+    echo "The firefox policy file differs:"
+    git diff --no-index "$DEST_FILE" "$SOURCE_FILE"
+    read -p "Overwrite the existing policy file? (y/n): " choice
+    if [ "$choice" = "y" ]; then
+      cp "$SOURCE_FILE" "$DEST_FILE"
+      echo "Firefox policy updated. Restart firefox to enable."
+    else
+      echo "Firefox policy update ignored."
+    fi
+  else
+    echo "Firefox policy is already up to date."
+  fi
+fi
+
+{{- end }}
