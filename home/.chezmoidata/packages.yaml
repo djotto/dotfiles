@@ -3,6 +3,7 @@ packages:
     taps:
       - 'charmbracelet/tap'  # Required for mods
       - 'ddev/ddev'          # Required for ddev
+      - 'djotto/tap'         # Required for bucklespring
     brews:
       - 'coreutils'          # GNU File, Shell, and Text utilities https://www.gnu.org/software/coreutils/
       - 'moreutils'          # Collection of tools that nobody wrote when UNIX was young https://joeyh.name/code/moreutils/
@@ -18,6 +19,7 @@ packages:
       - 'alure'              # Manage common tasks with OpenAL applications (required for bucklespring) https://kcat.tomasu.net/alure.html
       - 'bat'                # Clone of cat(1) with syntax highlighting and Git integration https://github.com/sharkdp/bat
       - 'binwalk'            # Searches a binary image for embedded files and executable code https://github.com/ReFirmLabs/binwalk
+      - 'bucklespring'       # Nostalgia bucklespring keyboard sound https://github.com/zevv/bucklespring
       - 'curl'               # Get a file from an HTTP, HTTPS or FTP server https://curl.se/
       - 'ddev/ddev/ddev'     # Containerized web development environments, defined in config. Supports PHP, Node.js, and Python (experimental). Requires docker or alternative. https://ddev.com/
       - 'dos2unix'           # Convert text between DOS, UNIX, and Mac formats https://waterlan.home.xs4all.nl/dos2unix.html
