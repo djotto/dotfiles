@@ -73,6 +73,7 @@ packages:
       - 'obsidian'           # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
       - 'phpstorm'           # PHP IDE by JetBrains https://www.jetbrains.com/phpstorm/
       - 'slack'              # Team communication and collaboration software https://slack.com/intl/en-gb
+      - 'textmate'           # General-purpose text editor https://macromates.com/
       - 'transmission'       # BitTorrent client https://transmissionbt.com/
       - 'vlc'                # Multimedia player https://www.videolan.org/vlc/
       - 'zed'                # Multiplayer code editor https://zed.dev/
