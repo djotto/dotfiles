@@ -72,6 +72,9 @@
 	# Compare two files that aren't necessarily in git
 	compare = diff --no-index
 
+	# Compare the staged files with the HEAD of the working copy
+	staged = diff --cached HEAD
+
 [apply]
 
 	# Detect whitespace errors when applying a patch.
