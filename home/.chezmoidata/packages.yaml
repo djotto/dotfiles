@@ -22,15 +22,16 @@ packages:
       - 'bucklespring'       # Nostalgia bucklespring keyboard sound https://github.com/zevv/bucklespring
       - 'curl'               # Get a file from an HTTP, HTTPS or FTP server https://curl.se/
       - 'ddev/ddev/ddev'     # Containerized web development environments, defined in config. Supports PHP, Node.js, and Python (experimental). Requires docker or alternative. https://ddev.com/
+      - 'djotto-scripts'     # Various personal utility scripts, packaged as a brew formula https://github.com/djotto/scripts
       - 'dos2unix'           # Convert text between DOS, UNIX, and Mac formats https://waterlan.home.xs4all.nl/dos2unix.html
+      - 'exiftool'           # Perl lib for reading and writing EXIF metadata https://exiftool.org
       - 'fdupes'             # Identify or delete duplicate files https://github.com/adrianlopezroche/fdupes
       - 'ffmpeg'             # Play, record, convert, and stream audio and video https://ffmpeg.org/
       - 'gh'                 # GitHub command-line tool https://cli.github.com/
-      - 'git-info'           # Script to dump info about the current repo in a human-readable format https://github.com/djotto/scripts
-      - 'git-seek'           # Script checkout branches based on partial name matches https://github.com/djotto/scripts
       - 'gmp'                # GNU multiple precision arithmetic library https://gmplib.org/
       - 'gnupg'              # GNU Pretty Good Privacy (PGP) package https://gnupg.org/
       - 'handbrake'          # Video transcoder https://handbrake.fr/
+      - 'id3lib'             # ID3 tag manipulation https://id3lib.sourceforge.net/
       - 'imagemagick'        # Tools and libraries to manipulate images in many formats https://imagemagick.org/index.php
       - 'jq'                 # Command-line JSON processor https://jqlang.github.io/jq/
       - 'lesspipe'           # Input filter for the pager less https://www-zeuthen.desy.de/~friebel/unix/lesspipe.html
@@ -47,6 +48,7 @@ packages:
       - 'scrcpy'             # Display and control your Android device https://github.com/Genymobile/scrcpy
       - 'screen'             # Terminal multiplexer with VT100/ANSI terminal emulation https://www.gnu.org/software/screen
       - 'sevenzip'           # 7-Zip is a file archiver with a high compression ratio https://7-zip.org
+      - 'shellcheck'         # ShellCheck is a GPLv3 tool that gives warnings and suggestions for bash/sh shell scripts https://github.com/koalaman/shellcheck
       - 'sshuttle'           # Proxy server that works as a poor man's VPN https://github.com/sshuttle/sshuttle
       - 'tailscale'          # Easiest, most secure way to use WireGuard and 2FA https://tailscale.com/
       - 'telnet'             # User interface to the TELNET protocol
