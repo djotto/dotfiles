@@ -5,11 +5,6 @@
     {{- $serialNumber = index ioreg "IORegistryEntryChildren" 0 "IOPlatformSerialNumber" -}}
 {{- end -}}
 
-{{- if eq .chezmoi.os "darwin" -}}
-    {{- $currentComputerName := output "scutil" "--get" "ComputerName" | trim -}}
-    {{- $computerName = promptString "Enter computer name" $currentComputerName }}
-{{- end -}}
-
 [keepassxc]
     database = "~/secrets.kdbx"
 
