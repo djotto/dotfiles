@@ -3,9 +3,10 @@
 
 ## Set machine name
 
-sudo scutil --set ComputerName "{{ .dotfiles.computer_name }}"
-sudo scutil --set HostName "{{ .dotfiles.computer_name }}"
-sudo scutil --set LocalHostName "{{ .dotfiles.computer_name }}"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "{{ .dotfiles.computer_name }}"
+sudo scutil --set ComputerName {{ keepassxcAttribute (print .dotfiles.serial_number) "computer_name" | quote }}
+sudo scutil --set HostName {{ keepassxcAttribute (print .dotfiles.serial_number) "computer_name" | quote }}
+sudo scutil --set LocalHostName {{ keepassxcAttribute (print .dotfiles.serial_number) "computer_name" | quote }}
+
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string {{ keepassxcAttribute (print .dotfiles.serial_number) "computer_name" | quote }}
 
 {{- end }}
