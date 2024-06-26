@@ -23,12 +23,11 @@ shopt -s histappend;
 # Do not autocorrect typos in path names when using `cd`
 shopt -u cdspell;
 
-# Enable some Bash 4 features when possible:
-# * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
-# * Recursive globbing, e.g. `echo **/*.txt`
-for option in autocd globstar; do
-	shopt -s "$option" 2> /dev/null;
-done;
+# Automatically navigate to a directory without typing `cd`
+shopt -s autocd;
+
+# Enable ** to match all files and directories recursively eg `ls **/*.txt`
+shopt -s globstar;
 
 # Add tab completion for many Bash commands
 if which brew &> /dev/null && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
