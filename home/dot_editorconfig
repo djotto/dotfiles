@@ -19,3 +19,9 @@ indent_size = 4
 
 [*{.mk,Makefile}]
 indent_style = tab
+
+[.git*]
+indent_style = tab
+
+[dot_git*]
+indent_style = tab
