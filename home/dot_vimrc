@@ -78,10 +78,10 @@ set incsearch   " Highlight dynamically as pattern is typed
 " Spacing and indentation
 " -----------------------
 
-set tabstop=4         " Set tab width to 4 spaces
-set shiftwidth=4      " Shiftwidth for reindent operations (<< and >>)
-set softtabstop=4     " Insert/delete 4 spaces when tab/backspace is pressed
-set expandtab         " Ensure spaces are used instead of tabs
+" overridden by .editorconfig set tabstop=4         " Set tab width to 4 spaces
+" overridden by .editorconfig set shiftwidth=4      " Shiftwidth for reindent operations (<< and >>)
+" overridden by .editorconfig set softtabstop=4     " Insert/delete 4 spaces when tab/backspace is pressed
+" overridden by .editorconfig set expandtab         " Ensure spaces are used instead of tabs
 set ai                " Auto-indent
 set showmatch         " Show matching brackets/braces/parantheses
 set cindent           " Enable cindent

@@ -1,0 +1,6 @@
+[".vim/pack/editorconfig/start/editorconfig-vim"]
+    type = "archive"
+    url = "https://github.com/editorconfig/editorconfig-vim/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
