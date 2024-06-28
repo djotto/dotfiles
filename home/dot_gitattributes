@@ -1,2 +1,6 @@
 # Automatically normalize line endings for all text-based files
 * text=auto
+
+# Trailing whitespace in markdown files can be semantically meaningful
+*.md whitespace=-blank-at-eol
+*.rst whitespace=-blank-at-eol
