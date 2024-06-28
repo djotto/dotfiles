@@ -75,6 +75,9 @@
 	# Compare the staged files with the HEAD of the working copy
 	staged = diff --cached HEAD
 
+	# Compare the working copy with its origin
+	new = "!f() { upstream=$(git rev-parse --abbrev-ref --symbolic-full-name @{u}); git diff $upstream..$(git rev-parse --abbrev-ref HEAD); }; f"
+
 [apply]
 
 	# Detect whitespace errors when applying a patch.
