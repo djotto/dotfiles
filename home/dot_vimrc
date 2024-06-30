@@ -20,6 +20,8 @@ set backspace=indent,eol,start      " Allow backspace in insert mode
 set gdefault                        " Add 'g' flag to search/replace (replace all instances in line, not just first)
 set encoding=utf-8 nobomb           " Use UTF-8 without Byte Order Mark
 let mapleader=","                   " Change mapleader
+set updatetime=300                  " Faster completion and CursorHold event time (supports vim-gitgutter plugin)
+set signcolumn=yes                  " Show the sign column when necessary (supports vim-gitgutter plugin)
 
 " Backup and Undo
 " ---------------
@@ -90,7 +92,8 @@ set cinoptions=:0,p0  " Configure cident to closely mimic smartindent
 " Folding
 " -------
 
-set foldmethod=syntax  " Use syntax-based folding
+set foldmethod=syntax                   " Use syntax-based folding
+set foldtext=gitgutter#fold#foldtext()  " Use GitGutter-augmented folding
 
 " File handling
 " -------------
