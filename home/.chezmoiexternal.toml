@@ -1,6 +1,12 @@
 [".vim/pack/editorconfig/start/editorconfig-vim"]
-    type = "archive"
-    url = "https://github.com/editorconfig/editorconfig-vim/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
+  type = "archive"
+  url = "https://github.com/editorconfig/editorconfig-vim/archive/master.tar.gz"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
+[".vim/pack/airblade/start/vim-gitgutter"]
+  type = "archive"
+  url = "https://github.com/airblade/vim-gitgutter/archive/main.tar.gz"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
