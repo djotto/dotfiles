@@ -135,6 +135,9 @@ endfunction
 " Custom Mappings, Abbreviations and Commands {{{
 " -----------------------------------------------
 
+" Do not fold gitcommit files, set line length to 80
+autocmd FileType gitcommit setlocal nofoldenable textwidth=80
+
 " Run TrimTrailingNewlines() on file save
 augroup trim_trailing_newlines
     autocmd!
