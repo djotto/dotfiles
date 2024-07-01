@@ -122,6 +122,15 @@ function! TrimTrailingNewlines()
     call winrestview(l:save)       " Restore window view state
     call setreg('/', old_query)    " Restore search pattern
 endfunction
+
+" Show changes between current buffer and file it was loaded from.
+function! DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
 " }}}
 " Custom Mappings, Abbreviations and Commands {{{
 " -----------------------------------------------
@@ -131,6 +140,9 @@ augroup trim_trailing_newlines
     autocmd!
     autocmd BufWritePre * call TrimTrailingNewlines()
 augroup END
+
+" Command that calls DiffWithSaved()
+command! Diff call DiffWithSaved()
 
 " hit <F2> before and after pasting code to stop autoindent messing with it
 nnoremap <F2> :set invpaste paste?<CR>
