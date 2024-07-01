@@ -122,23 +122,12 @@ function! TrimTrailingNewlines()
     call setreg('/', old_query)    " Restore search pattern
 endfunction
 
-" ,ss Remove trailing whitespace from all lines in the current file
-function! StripWhitespace()
-    let l:save = winsaveview()     " Save current window view state so it can be restored after operation
-    let old_query = getreg('/')    " Save current search pattern so it can be restored after whitespace removal
-    silent! %s/\s\+$//e            " Remove trailing whitespace (the e flag prevents errors if no whitespace is found)
-    call winrestview(l:save)       " Restore window view state
-    call setreg('/', old_query)    " Restore search pattern
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>    " Map ,ss to StripWhitespace()
-
 " Custom Mappings, Abbreviations and Commands
 " -------------------------------------------
 
-" Run StripWhitespace() and TrimTrailingNewlines() on file save
+" Run TrimTrailingNewlines() on file save
 augroup trim_trailing_newlines
     autocmd!
-    autocmd BufWritePre * call StripWhitespace()
     autocmd BufWritePre * call TrimTrailingNewlines()
 augroup END
 
