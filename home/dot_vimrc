@@ -135,6 +135,9 @@ endfunction
 " Custom Mappings, Abbreviations and Commands {{{
 " -----------------------------------------------
 
+" Do not fold gitcommit files
+autocmd FileType gitcommit setlocal nofoldenable
+
 " Run TrimTrailingNewlines() on file save
 augroup trim_trailing_newlines
     autocmd!
