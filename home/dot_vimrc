@@ -111,7 +111,7 @@ set fixendofline    " Adds a newline at the end of the file if one is missing wh
 " Remove trailing newlines
 function! TrimTrailingNewlines()
     let l:save = winsaveview()     " Save current window view state so it can be restored after operation
-    let old_query = getreg('/')    " Save current search pattern so it can be restored after whitespace removal
+    let old_query = getreg('/')    " Save current search pattern so it can be restored after newline removal
     " Move cursor to end of file
     normal! G
     " While current line is empty, delete current line
