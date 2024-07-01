@@ -14,6 +14,7 @@ let g:solarized_termtrans=1  " Enable transparent background for Solarized theme
 set nocompatible                    " Disable vi compatibility, enable full vim features
 set clipboard^=unnamed,unnamedplus  " Use system clipboard (https://stackoverflow.com/questions/30691466)
 set wildmenu                        " Enhance command-line completion
+set wildignorecase                  " Make command-line completion case-insensitive
 set wildmode=longest:full,full      " Complete the longest common match, then show all matches
 set completeopt=menuone,noselect    " Show completion menu for one item and don't preselect
 set backspace=indent,eol,start      " Allow backspace in insert mode
