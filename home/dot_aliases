@@ -144,3 +144,7 @@ alias path='echo -e ${PATH//:/\\n}'
 # cat but with syntax highlighting
 # @see https://github.com/sharkdp/bat/issues/2731
 alias cat='bat -P --color=always'
+
+# I only ever run drush within ddev
+# (Make this conditional when moving to non-macOS environments)
+alias drush='ddev drush'
