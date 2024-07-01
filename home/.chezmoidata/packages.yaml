@@ -69,6 +69,7 @@ packages:
       - 'iterm2'             # Terminal emulator https://www.iterm2.com/
       - 'keepassxc'          # Password manager app https://keepassxc.org/
       - 'max'                # Max is an application for creating high-quality audio files in various formats, from compact discs or files. https://github.com/sbooth/Max
+      - 'microsoft-teams'    # Meet, chat, call, and collaborate https://www.microsoft.com/en/microsoft-teams/group-chat-software/
       - 'musicbrainz-picard' # Music tagger https://picard.musicbrainz.org/
       - 'obsidian'           # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
       - 'phpstorm'           # PHP IDE by JetBrains https://www.jetbrains.com/phpstorm/
