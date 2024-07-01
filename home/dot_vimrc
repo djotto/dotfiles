@@ -1,15 +1,15 @@
 " Vim Configuration File
 " ======================
 
-" Theme and Appearance
-" --------------------
+" Theme and Appearance {{{
+" ------------------------
 
 colorscheme solarized        " Use the Solarized theme
 set background=dark          " Optimize colorscheme for a dark background
 let g:solarized_termtrans=1  " Enable transparent background for Solarized theme
-
-" Essential Settings
-" ------------------
+" }}}
+" Essential Settings {{{
+" ----------------------
 
 set nocompatible                    " Disable vi compatibility, enable full vim features
 set clipboard^=unnamed,unnamedplus  " Use system clipboard (https://stackoverflow.com/questions/30691466)
@@ -23,25 +23,25 @@ set encoding=utf-8 nobomb           " Use UTF-8 without Byte Order Mark
 let mapleader=","                   " Change mapleader
 set updatetime=300                  " Faster completion and CursorHold event time (supports vim-gitgutter plugin)
 set signcolumn=yes                  " Show the sign column when necessary (supports vim-gitgutter plugin)
-
-" Backup and Undo
-" ---------------
+" }}}
+" Backup and Undo {{{
+" -------------------
 
 set backupdir=~/.vim/backups          " Centralize backups
 set directory=~/.vim/swaps            " Centralize swapfiles
 set undodir=~/.vim/undo               " Centralize undo history
 set backupskip=/tmp/*,/private/tmp/*  " Don’t create backups when editing files in these directories
-
-" Modeline and Security
-" ---------------------
+" }}}
+" Modeline and Security {{{
+" -------------------------
 
 set modeline     " Respect modeline (embedding file-specific vim settings at the top or bottom of the file)
 set modelines=5  " Examine first and last five lines for modelines
 " set exrc         " Enable local, per-directory .exrc and .vimrc files
 " set secure       " Restrict potentially unsafe commands in local .exrc and .vimrc
-
-" Display and Interface
-" ---------------------
+" }}}
+" Display and Interface {{{
+" -------------------------
 
 syntax on                             " Enable syntax highlighting
 " set cursorline                      " Highlight current line
@@ -58,9 +58,9 @@ set title                             " Show the filename in the terminal's titl
 set showcmd                           " Show the (partial) command as it's being typed in the bottom right corner
 set scrolloff=3                       " Start scrolling three lines before the horizontal window border
 set colorcolumn=80,120                " Set color columns at 80 and 120
-
-" Line numbers
-" ------------
+" }}}
+" Line numbers {{{
+" ----------------
 
 set number                                              " Enable line numbers
 set relativenumber                                      " Enable relative line numbers
@@ -70,16 +70,16 @@ augroup number_toggle                                   " A group of autocommand
     autocmd InsertEnter,FocusLost * set number            " Set absolute line numbers when entering insert mode and when vim loses focus
     autocmd InsertLeave * set relativenumber              " Set relative line numbers when leaving insert mode
 augroup END
-
-" Search
-" ------
+" }}}
+" Search {{{
+" ----------
 
 set hlsearch    " Highlight search hits
 set ignorecase  " Ignore case in searches
 set incsearch   " Highlight dynamically as pattern is typed
-
-" Spacing and indentation
-" -----------------------
+" }}}
+" Spacing and indentation {{{
+" ---------------------------
 
 " overridden by .editorconfig set tabstop=4         " Set tab width to 4 spaces
 " overridden by .editorconfig set shiftwidth=4      " Shiftwidth for reindent operations (<< and >>)
@@ -89,24 +89,24 @@ set ai                " Auto-indent
 set showmatch         " Show matching brackets/braces/parantheses
 set cindent           " Enable cindent
 set cinoptions=:0,p0  " Configure cident to closely mimic smartindent
-
-" Folding
-" -------
+" }}}
+" Folding {{{
+" -----------
 
 set foldmethod=syntax                   " Use syntax-based folding
 set foldtext=gitgutter#fold#foldtext()  " Use GitGutter-augmented folding
-
-" File handling
-" -------------
+" }}}
+" File handling {{{
+" -----------------
 
 filetype on         " Enable file type detection
 filetype plugin on  " Enable file type plugins
 filetype indent on  " Enable file type specific indenting
 set endofline       " Ensure Vim adds a newline at the end of the file
 set fixendofline    " Adds a newline at the end of the file if one is missing when the file is written
-
-" Custom Functions
-" ----------------
+" }}}
+" Custom Functions {{{
+" --------------------
 
 " Remove trailing newlines
 function! TrimTrailingNewlines()
@@ -121,9 +121,9 @@ function! TrimTrailingNewlines()
     call winrestview(l:save)       " Restore window view state
     call setreg('/', old_query)    " Restore search pattern
 endfunction
-
-" Custom Mappings, Abbreviations and Commands
-" -------------------------------------------
+" }}}
+" Custom Mappings, Abbreviations and Commands {{{
+" -----------------------------------------------
 
 " Run TrimTrailingNewlines() on file save
 augroup trim_trailing_newlines
@@ -134,3 +134,6 @@ augroup END
 " hit <F2> before and after pasting code to stop autoindent messing with it
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
+
+" vim:foldmethod=marker:foldlevel=0
+" }}}
