@@ -95,6 +95,7 @@ set cinoptions=:0,p0  " Configure cident to closely mimic smartindent
 
 set foldmethod=syntax                   " Use syntax-based folding
 set foldtext=gitgutter#fold#foldtext()  " Use GitGutter-augmented folding
+let php_folding=1                       " Turn on folding for PHP files
 " }}}
 " File handling {{{
 " -----------------
