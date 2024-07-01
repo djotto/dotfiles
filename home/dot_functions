@@ -219,3 +219,13 @@ get_color_ls() {
 
   echo "$result"
 }
+
+# Wrap ddev to emulate git-style aliases
+ddev() {
+  if [ "$1" == "info" ]; then
+    shift
+    command ddev describe "$@"
+  else
+    command ddev "$@"
+  fi
+}
