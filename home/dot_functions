@@ -226,3 +226,21 @@ ddev() {
     command ddev "$@"
   fi
 }
+
+# Wrap git to catch uses of --force
+git() {
+  for arg in "$@"; do
+    if [[ "$arg" == "--force" ]]; then
+      echo "'--force-with-lease' is preferred to avoid overwriting upstream changes."
+      read -p "Are you sure you want to proceed with '--force'? (yes/no): " choice
+      if [[ "$choice" != "yes" ]]; then
+        echo "Operation aborted."
+        return 1
+      fi
+      break
+    fi
+  done
+
+  # Pass all arguments to the actual git command
+  command git "$@"
+}
