@@ -138,6 +138,10 @@ endfunction
 " Do not fold gitcommit files, set line length to 80
 autocmd FileType gitcommit setlocal nofoldenable textwidth=80
 
+" Restore cursor position when reopening file
+autocmd BufWinEnter *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe 'normal! g`"zv' | endif
+
 " Run TrimTrailingNewlines() on file save
 augroup trim_trailing_newlines
     autocmd!
