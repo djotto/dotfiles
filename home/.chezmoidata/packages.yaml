@@ -63,7 +63,6 @@ packages:
       - 'aural'              # Audio player inspired by Winamp https://github.com/kartik-venugopal/aural-player
       - 'discord'            # Voice and text chat software https://discord.com/
       - 'disk-inventory-x'   # Disk usage utility https://www.derlien.com/
-      - 'docker'             # Docker Desktop (conflicts with docker formula) https://www.docker.com/products/docker-desktop/
       - 'firefox'            # Web browser https://www.mozilla.org/firefox/
       - 'google-chrome'      # Web browser https://www.google.com/chrome/
       - 'iterm2'             # Terminal emulator https://www.iterm2.com/
@@ -71,6 +70,7 @@ packages:
       - 'max'                # Max is an application for creating high-quality audio files in various formats, from compact discs or files. https://github.com/sbooth/Max
       - 'musicbrainz-picard' # Music tagger https://picard.musicbrainz.org/
       - 'obsidian'           # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
+      - 'orbstack'           # Replacement for Docker Desktop https://orbstack.dev/
       - 'phpstorm'           # PHP IDE by JetBrains https://www.jetbrains.com/phpstorm/
       - 'slack'              # Team communication and collaboration software https://slack.com/intl/en-gb
       - 'transmission'       # BitTorrent client https://transmissionbt.com/
