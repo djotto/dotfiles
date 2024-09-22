@@ -1,0 +1,14 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+
+## Set default shell to GNU bash
+
+# Add GNU bash to list of valid shells
+if ! grep -Fxq "/usr/local/bin/bash" /etc/shells; then
+    echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
+fi
+
+# Set default shell to GNU bash
+chsh -s /usr/local/bin/bash
+
+{{- end }}
