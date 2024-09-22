@@ -19,10 +19,10 @@ packages:
       - 'alure'              # Manage common tasks with OpenAL applications (required for bucklespring) https://kcat.tomasu.net/alure.html
       - 'bat'                # Clone of cat(1) with syntax highlighting and Git integration https://github.com/sharkdp/bat
       - 'binwalk'            # Searches a binary image for embedded files and executable code https://github.com/ReFirmLabs/binwalk
-      - 'bucklespring'       # Nostalgia bucklespring keyboard sound https://github.com/zevv/bucklespring
+      - 'djotto/tap/bucklespring'   # Nostalgia bucklespring keyboard sound https://github.com/zevv/bucklespring
       - 'curl'               # Get a file from an HTTP, HTTPS or FTP server https://curl.se/
       - 'ddev/ddev/ddev'     # Containerized web development environments, defined in config. Supports PHP, Node.js, and Python (experimental). Requires docker or alternative. https://ddev.com/
-      - 'djotto-scripts'     # Various personal utility scripts, packaged as a brew formula https://github.com/djotto/scripts
+      - 'djotto/tap/djotto-scripts' # Various personal utility scripts, packaged as a brew formula https://github.com/djotto/scripts
       - 'dos2unix'           # Convert text between DOS, UNIX, and Mac formats https://waterlan.home.xs4all.nl/dos2unix.html
       - 'exiftool'           # Perl lib for reading and writing EXIF metadata https://exiftool.org
       - 'fdupes'             # Identify or delete duplicate files https://github.com/adrianlopezroche/fdupes
@@ -37,7 +37,7 @@ packages:
       - 'lesspipe'           # Input filter for the pager less https://www-zeuthen.desy.de/~friebel/unix/lesspipe.html
       - 'mkcert'             # Simple tool to make locally trusted development certificates (ddev assumes this, but I try to make do without it because I consider it a security hole) https://github.com/FiloSottile/mkcert
       - 'mods'               # AI on the command-line https://github.com/charmbracelet/mods
-      - 'mp3guessenc'        # Utility to analysze audio mpeg files and detect the encoder used (when layer III) https://mp3guessenc.sourceforge.io/
+      - 'djotto/tap/mp3guessenc'    # Utility to analysze audio mpeg files and detect the encoder used (when layer III) https://mp3guessenc.sourceforge.io/
       - 'openssh'            # OpenBSD freely-licensed SSH connectivity tools https://www.openssh.com/
       - 'pkg-config'         # Manage compile and link flags for libraries (required for bucklespring) https://freedesktop.org/wiki/Software/pkg-config/
       - 'pngcheck'           # Print info and check PNG, JNG, and MNG files http://www.libpng.org/pub/png/apps/pngcheck.html
@@ -67,7 +67,7 @@ packages:
       - 'google-chrome'      # Web browser https://www.google.com/chrome/
       - 'iterm2'             # Terminal emulator https://www.iterm2.com/
       - 'keepassxc'          # Password manager app https://keepassxc.org/
-      - 'max'                # Max is an application for creating high-quality audio files in various formats, from compact discs or files. https://github.com/sbooth/Max
+      - 'djotto/tap/max'      # Max is an application for creating high-quality audio files in various formats, from compact discs or files. https://github.com/sbooth/Max
       - 'musicbrainz-picard' # Music tagger https://picard.musicbrainz.org/
       - 'obsidian'           # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
       - 'orbstack'           # Replacement for Docker Desktop https://orbstack.dev/
