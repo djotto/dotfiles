@@ -4,9 +4,15 @@
 ## MacOS configuration
 ## https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 
-# Close any open System Preferences panes, to prevent them from overriding
-# settings we’re about to change
-osascript -e 'tell application "System Preferences" to quit'
+# Use osascript to tell a desktop application to quit.
+quit_app() {
+  local app_name="$1"
+  osascript -e "tell application \"$app_name\" to quit"
+  if [ $? -ne 0 ]; then
+    echo "Error: Failed to quit $app_name"
+    exit 1
+  fi
+}
 
 # Ask for the administrator password upfront
 sudo -v
@@ -14,12 +20,26 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Get OS version
+os_version=$(sw_vers -productVersion)
+os_version_major=$(echo "$os_version" | cut -d '.' -f 1)
+os_version_minor=$(echo "$os_version" | cut -d '.' -f 2)
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+if [ "$os_version_major" -ge 14 ]; then
+  # System Preferences was renamed in Sonoma
+  quit_app "System Settings"
+else
+  quit_app "System Preferences"
+fi
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
 
-# Disable transparency in the menu bar
-defaults write com.apple.universalaccess reduceTransparency -bool false
+# Disable transparency effects
+defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # Set theme to dark
 defaults write NSGlobalDomain AppleInterfaceStyle "Dark"
@@ -686,10 +706,9 @@ for app in "Activity Monitor" \
   "Messages" \
   "Photos" \
   "SystemUIServer" \
-  "Terminal" \
   "Transmission" \
   "iCal"; do
-  killall "${app}" &> /dev/null
+  quit_app "${app}"
 done
 echo "macOS configuration done. Note that some of these changes require a logout/restart to take effect."
 {{ end -}}
